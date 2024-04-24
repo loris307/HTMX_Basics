@@ -1,0 +1,14 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Nachrichten-App</title>
+    <script src="https://unpkg.com/htmx.org"></script>
+</head>
+<body>
+    <div id="messages" hx-get="/get-messages" hx-trigger="load">
+        Lade Nachrichten...
+    </div>
+</body>
+</html>
