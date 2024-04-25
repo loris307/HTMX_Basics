@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <title>Nachrichten-App</title>
     <script src="https://unpkg.com/htmx.org"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script> <!-- JSON-Encoder -->
 </head>
 <body>
-    <div id="messages" hx-get="/get-messages" hx-trigger="load">
+    <div id="messages" hx-get="http://localhost:8080/get-messages" hx-trigger="load">
         Lade Nachrichten...
     </div>
+    <form hx-post="http://localhost:8080/add-messages" hx-target="#messages" hx-swap="innerHTML" hx-ext="json-enc">
+        <input type="text" name="message" placeholder="Schreibe eine Nachricht..." required>
+        <button type="submit">Senden</button>
+    </form>
+
+    <button hx-delete="http://localhost:8080/delete-last-message" hx-target="#messages" hx-swap="innerHTML">
+        Letzte Nachricht löschen
+    </button>
 </body>
 </html>
