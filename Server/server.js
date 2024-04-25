@@ -7,12 +7,11 @@ app.use(cors()); // Dies ermöglicht CORS für alle Routen
 app.use(express.json());
 
 
-
 // Dummy-Daten für die Demonstration
 const messages = [
-    { id: 1, text: "Hallo Welt!" },
-    { id: 2, text: "HTMX ist toll!" },
-    { id: 3, text: "Express macht Backend einfach." }
+    { id: 1, text: "Diese Nachricht kommt vom Server" },
+    { id: 2, text: "Diese Hier auch!" },
+    { id: 3, text: "DIE NICHT (nein spaß, die auch)" }
 ];
 
 app.get('/get-messages', (req, res) => {
