@@ -3,20 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Nachrichten-App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/htmx.org"></script>
     <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script> <!-- JSON-Encoder -->
 </head>
-<body>
-    <div id="messages" hx-get="http://localhost:8080/get-messages" hx-trigger="load">
-        Lade Nachrichten...
-    </div>
-    <form hx-post="http://localhost:8080/add-messages" hx-target="#messages" hx-swap="innerHTML" hx-ext="json-enc">
-        <input type="text" name="message" placeholder="Schreibe eine Nachricht..." required>
-        <button type="submit">Senden</button>
-    </form>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="container mx-auto my-8">
+        <div class="flex justify-center">
+            <div class="w-full max-w-2xl">
+                <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <div id="messages" hx-get="http://localhost:8080/get-messages" hx-trigger="load" class="p-4 bg-gray-50 h-64 overflow-auto">
+                        Lade Nachrichten...
+                    </div>
 
-    <button hx-delete="http://localhost:8080/delete-last-message" hx-target="#messages" hx-swap="innerHTML">
-        Letzte Nachricht löschen
-    </button>
+                    <form hx-post="http://localhost:8080/add-messages" hx-target="#messages" hx-swap="innerHTML" hx-ext="json-enc" class="bg-white rounded pt-6 pb-8 mb-4">
+                        <input type="text" name="message" placeholder="Schreibe eine Nachricht..." required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4">
+                            Senden
+                        </button>
+                    </form>
+
+                    <button hx-delete="http://localhost:8080/delete-last-message" hx-target="#messages" hx-swap="innerHTML" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Letzte Nachricht löschen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

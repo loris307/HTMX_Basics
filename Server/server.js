@@ -24,11 +24,7 @@ app.get('/get-messages', (req, res) => {
     res.send(html);
 });
 
-
-
 app.post('/add-messages', (req, res) => {
-    console.log(req.body);
-    console.log(req.body.message);
     const textToAdd = req.body.message; 
     if(textToAdd) {
         messages.push({ id: messages.length + 1, text: textToAdd }); 
@@ -38,7 +34,6 @@ app.post('/add-messages', (req, res) => {
         res.status(400).send('Keine Nachricht angegeben');
     }
 });
-
 
 app.delete('/delete-last-message', (req, res) => {
     if (messages.length > 0) {
@@ -50,6 +45,12 @@ app.delete('/delete-last-message', (req, res) => {
     }
 });
 
+
+
+
 app.listen(port, () => {
     console.log(`Server läuft auf http://localhost:${port}`);
 })
+
+
+
