@@ -1,2 +1,2 @@
 # HTMX_Merkliste
- Eine Merkliste für jegliche Sachen. HTMX als FrontEnd und Express als BackEnd
+ Eine kleine Client-Server Architektur, welche die Basics von HTMX vermittelt 
